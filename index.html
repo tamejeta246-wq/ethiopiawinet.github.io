@@ -1,4 +1,587 @@
-com/ethiopiawinet_dance_crew" target="_blank">Instagram</a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ethiopiawinet Dance Crew | Official Website</title>
+<meta name="description" content="Ethiopiawinet Dance Crew — Award-winning Ethiopian dance group specializing in traditional music, dance, drumming, and theatre from Ethiopia, Eritrea, and East Africa.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C8922A;
+  --gold-light: #E8C278;
+  --gold-pale: rgba(200,146,42,0.12);
+  --red: #8B1A1A;
+  --green: #2D5016;
+  --earth: #130B05;
+  --earth2: #1E1008;
+  --earth3: #281508;
+  --cream: #F5EFE0;
+  --text: rgba(245,239,224,0.88);
+  --muted: rgba(245,239,224,0.5);
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { font-family:'Outfit',sans-serif; background:var(--earth); color:var(--cream); overflow-x:hidden; }
+::-webkit-scrollbar { width:4px; }
+::-webkit-scrollbar-track { background:var(--earth); }
+::-webkit-scrollbar-thumb { background:var(--gold); border-radius:2px; }
+
+/* NAV */
+#navbar {
+  position:fixed; top:0; left:0; right:0; z-index:200;
+  padding:22px 60px;
+  display:flex; align-items:center; justify-content:space-between;
+  transition:all 0.4s;
+}
+#navbar.scrolled {
+  background:rgba(19,11,5,0.97);
+  padding:14px 60px;
+  border-bottom:1px solid rgba(200,146,42,0.15);
+  backdrop-filter:blur(10px);
+}
+.nav-logo {
+  font-family:'Cormorant Garamond',serif;
+  font-size:22px; font-weight:700;
+  color:var(--gold-light); text-decoration:none; letter-spacing:0.04em;
+}
+.nav-logo small {
+  display:block; font-size:10px; font-family:'Outfit',sans-serif;
+  font-weight:400; letter-spacing:0.2em; text-transform:uppercase;
+  color:var(--muted); margin-top:2px;
+}
+.nav-links { display:flex; gap:36px; list-style:none; align-items:center; }
+.nav-links a {
+  text-decoration:none; font-size:12px; letter-spacing:0.12em;
+  text-transform:uppercase; color:var(--muted); transition:color 0.2s; font-weight:500;
+}
+.nav-links a:hover { color:var(--gold-light); }
+.nav-cta { background:var(--gold)!important; color:var(--earth)!important; padding:11px 26px; border-radius:2px; font-weight:700!important; }
+.nav-cta:hover { background:var(--gold-light)!important; }
+.hamburger { display:none; flex-direction:column; gap:5px; cursor:pointer; background:none; border:none; }
+.hamburger span { display:block; width:24px; height:2px; background:var(--cream); border-radius:2px; transition:0.3s; }
+.mobile-menu {
+  display:none; position:fixed; inset:0; background:rgba(19,11,5,0.98);
+  z-index:300; flex-direction:column; align-items:center; justify-content:center; gap:32px;
+}
+.mobile-menu.open { display:flex; }
+.mobile-menu a {
+  font-size:22px; letter-spacing:0.1em; text-transform:uppercase;
+  color:var(--cream); text-decoration:none; font-weight:300;
+}
+.mobile-menu .close-btn {
+  position:absolute; top:24px; right:24px;
+  font-size:28px; color:var(--cream); cursor:pointer; background:none; border:none;
+}
+
+/* HERO */
+#home {
+  min-height:100vh; display:flex; align-items:center;
+  position:relative; overflow:hidden; padding:140px 60px 100px;
+}
+.hero-bg {
+  position:absolute; inset:0;
+  background:
+    radial-gradient(ellipse 70% 80% at 75% 50%, rgba(139,26,26,0.28) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 60% at 15% 70%, rgba(200,146,42,0.1) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(45,80,22,0.18) 0%, transparent 60%),
+    var(--earth);
+}
+.hero-img {
+  position:absolute; inset:0;
+  background: url('https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=1600&q=80') center/cover;
+  opacity:0.08;
+}
+.flag-bar { position:absolute; left:0; top:0; bottom:0; width:6px; display:flex; flex-direction:column; }
+.flag-bar div { flex:1; }
+.fb-green { background:var(--green); }
+.fb-gold { background:var(--gold); }
+.fb-red { background:var(--red); }
+
+.hero-content { position:relative; max-width:780px; }
+.hero-tag {
+  display:inline-flex; align-items:center; gap:12px; margin-bottom:32px;
+  opacity:0; animation:fadeUp 1s 0.2s forwards;
+}
+.hero-tag-line { width:36px; height:1px; background:var(--gold); }
+.hero-tag span { font-size:11px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); font-weight:600; }
+
+h1.hero-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(52px,9vw,108px); font-weight:300; line-height:0.9; margin-bottom:30px;
+  opacity:0; animation:fadeUp 1s 0.35s forwards;
+}
+h1.hero-title em { display:block; font-style:italic; color:var(--gold-light); font-weight:400; }
+h1.hero-title strong { display:block; font-weight:700; }
+
+.hero-desc {
+  font-size:17px; font-weight:300; color:var(--text); line-height:1.8;
+  max-width:500px; margin-bottom:50px;
+  opacity:0; animation:fadeUp 1s 0.5s forwards;
+}
+.hero-btns {
+  display:flex; gap:20px; align-items:center;
+  opacity:0; animation:fadeUp 1s 0.65s forwards;
+}
+.btn-gold {
+  background:var(--gold); color:var(--earth); padding:16px 38px; border-radius:2px;
+  font-size:13px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+  text-decoration:none; display:inline-block; transition:all 0.25s; border:none; cursor:pointer;
+}
+.btn-gold:hover { background:var(--gold-light); transform:translateY(-2px); }
+.btn-outline {
+  color:var(--cream); font-size:13px; font-weight:500; letter-spacing:0.1em;
+  text-transform:uppercase; text-decoration:none; display:inline-flex; align-items:center; gap:10px;
+  transition:color 0.2s;
+}
+.btn-outline:hover { color:var(--gold-light); }
+.play-icon {
+  width:42px; height:42px; border:1px solid rgba(200,146,42,0.5);
+  border-radius:50%; display:flex; align-items:center; justify-content:center;
+  font-size:11px; color:var(--gold); transition:all 0.2s;
+}
+.hero-stats {
+  position:absolute; right:60px; bottom:80px;
+  display:flex; flex-direction:column; gap:24px; text-align:right;
+  opacity:0; animation:fadeUp 1s 0.8s forwards;
+}
+.stat-num { font-family:'Cormorant Garamond',serif; font-size:46px; font-weight:600; color:var(--gold-light); line-height:1; }
+.stat-lbl { font-size:10px; text-transform:uppercase; letter-spacing:0.15em; color:var(--muted); }
+
+@keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+
+/* ABOUT */
+#about { padding:120px 60px; background:var(--earth2); position:relative; overflow:hidden; }
+.about-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:80px; align-items:center; }
+.section-tag { display:flex; align-items:center; gap:14px; margin-bottom:18px; }
+.section-tag span { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); font-weight:600; }
+.section-tag::after { content:''; flex:0 0 50px; height:1px; background:var(--gold-pale); }
+h2.sec-title { font-family:'Cormorant Garamond',serif; font-size:clamp(36px,4.5vw,58px); font-weight:300; line-height:1.1; margin-bottom:28px; }
+h2.sec-title em { font-style:italic; color:var(--gold-light); }
+.about-text p { font-size:16px; font-weight:300; color:var(--text); line-height:1.9; margin-bottom:20px; }
+.about-facts { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:36px; }
+.fact-item { border-left:2px solid var(--gold); padding:14px 18px; background:rgba(200,146,42,0.05); border-radius:0 4px 4px 0; }
+.fact-item strong { display:block; font-size:13px; color:var(--gold-light); margin-bottom:4px; font-weight:600; }
+.fact-item span { font-size:13px; color:var(--muted); }
+.about-photo { width:100%; height:500px; object-fit:cover; border-radius:4px; border:1px solid rgba(200,146,42,0.15); }
+
+/* ACHIEVEMENTS */
+.achievements { background:var(--gold); padding:60px; }
+.ach-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(4,1fr); gap:20px; text-align:center; }
+.ach-num { font-family:'Cormorant Garamond',serif; font-size:56px; font-weight:700; color:var(--earth); line-height:1; }
+.ach-lbl { font-size:12px; font-weight:600; letter-spacing:0.12em; text-transform:uppercase; color:rgba(28,15,8,0.65); margin-top:8px; }
+
+/* GALLERY */
+#gallery { padding:120px 60px; background:var(--earth3); }
+.gallery-inner { max-width:1200px; margin:0 auto; }
+.gallery-head { display:flex; align-items:flex-end; justify-content:space-between; margin-bottom:48px; }
+.gallery-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:6px; }
+.g-item {
+  overflow:hidden; border-radius:2px; position:relative; cursor:pointer;
+  aspect-ratio:4/3;
+}
+.g-item:first-child { grid-column:span 2; aspect-ratio:16/9; }
+.g-item img { width:100%; height:100%; object-fit:cover; transition:transform 0.5s; display:block; }
+.g-item:hover img { transform:scale(1.06); }
+.g-overlay {
+  position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(19,11,5,0.6) 0%, transparent 60%);
+  opacity:0; transition:opacity 0.3s;
+}
+.g-item:hover .g-overlay { opacity:1; }
+
+/* VIDEOS */
+#videos { padding:120px 60px; background:var(--earth2); }
+.videos-inner { max-width:1200px; margin:0 auto; }
+.video-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:48px; }
+.video-card {
+  border-radius:4px; overflow:hidden; background:var(--earth3);
+  border:1px solid rgba(200,146,42,0.1); transition:all 0.3s; cursor:pointer; text-decoration:none;
+  display:block;
+}
+.video-card:hover { border-color:var(--gold); transform:translateY(-6px); }
+.video-thumb { height:180px; display:flex; align-items:center; justify-content:center; position:relative; overflow:hidden; }
+.vt1 { background:linear-gradient(145deg,#601010,#1A0404); }
+.vt2 { background:linear-gradient(145deg,#183010,#061004); }
+.vt3 { background:linear-gradient(145deg,#3A2010,#120A04); }
+.video-play-btn {
+  width:54px; height:54px; border:2px solid rgba(200,146,42,0.6); border-radius:50%;
+  display:flex; align-items:center; justify-content:center; color:var(--gold); font-size:16px;
+  transition:all 0.2s; z-index:1;
+}
+.video-card:hover .video-play-btn { background:var(--gold); color:var(--earth); border-color:var(--gold); }
+.video-info { padding:20px; }
+.video-tag { font-size:10px; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:8px; }
+.video-info h4 { font-family:'Cormorant Garamond',serif; font-size:20px; font-weight:600; color:var(--cream); margin-bottom:6px; }
+.video-info p { font-size:13px; color:var(--muted); font-weight:300; }
+
+/* BOOKING */
+#book { padding:120px 60px; background:var(--earth); position:relative; overflow:hidden; }
+#book::before { content:''; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,var(--green),var(--gold),var(--red)); }
+.book-inner { max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1.2fr; gap:80px; align-items:start; }
+.book-info h2 { font-family:'Cormorant Garamond',serif; font-size:clamp(36px,4.5vw,54px); font-weight:300; line-height:1.1; margin-bottom:24px; }
+.book-info h2 em { font-style:italic; color:var(--gold-light); }
+.book-info p { font-size:15px; font-weight:300; color:var(--text); line-height:1.85; margin-bottom:36px; }
+.contact-links { display:flex; flex-direction:column; gap:16px; }
+.contact-item {
+  display:flex; align-items:center; gap:16px; padding:16px 20px;
+  border:1px solid rgba(200,146,42,0.15); border-radius:4px; text-decoration:none;
+  transition:all 0.2s;
+}
+.contact-item:hover { border-color:var(--gold); background:var(--gold-pale); }
+.contact-icon { width:40px; height:40px; background:var(--gold-pale); border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:18px; flex-shrink:0; }
+.contact-text strong { display:block; font-size:12px; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); margin-bottom:2px; font-weight:600; }
+.contact-text span { font-size:14px; color:var(--text); }
+
+.book-form { display:flex; flex-direction:column; gap:16px; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.form-group { display:flex; flex-direction:column; gap:8px; }
+.form-group label { font-size:11px; letter-spacing:0.12em; text-transform:uppercase; color:var(--muted); font-weight:500; }
+.form-group input, .form-group select, .form-group textarea {
+  background:rgba(245,239,224,0.05); border:1px solid rgba(200,146,42,0.2); border-radius:3px;
+  padding:14px 16px; color:var(--cream); font-family:'Outfit',sans-serif; font-size:14px; font-weight:300;
+  outline:none; transition:border-color 0.2s; width:100%;
+}
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { border-color:var(--gold); }
+.form-group select option { background:var(--earth2); }
+.form-group textarea { resize:vertical; min-height:120px; }
+.form-submit {
+  background:var(--gold); color:var(--earth); padding:16px; border:none; border-radius:3px;
+  font-family:'Outfit',sans-serif; font-size:13px; font-weight:700; letter-spacing:0.12em;
+  text-transform:uppercase; cursor:pointer; transition:all 0.25s; margin-top:4px;
+}
+.form-submit:hover { background:var(--gold-light); transform:translateY(-2px); }
+
+/* SOCIAL */
+.social-bar { background:var(--earth2); padding:50px 60px; border-top:1px solid rgba(200,146,42,0.1); }
+.social-inner { max-width:1200px; margin:0 auto; display:flex; align-items:center; justify-content:center; gap:20px; flex-wrap:wrap; }
+.social-btn {
+  display:flex; align-items:center; gap:10px; padding:14px 24px;
+  border:1px solid rgba(200,146,42,0.2); border-radius:30px; text-decoration:none;
+  color:var(--cream); font-size:13px; font-weight:500; transition:all 0.2s;
+}
+.social-btn:hover { border-color:var(--gold); background:var(--gold-pale); color:var(--gold-light); }
+
+/* FOOTER */
+footer { background:var(--earth2); border-top:1px solid rgba(200,146,42,0.12); padding:60px; }
+.footer-inner { max-width:1200px; margin:0 auto; display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:48px; }
+.footer-logo { font-family:'Cormorant Garamond',serif; font-size:24px; font-weight:700; color:var(--gold-light); display:block; margin-bottom:16px; }
+.footer-brand p { font-size:14px; font-weight:300; color:var(--muted); line-height:1.8; max-width:280px; }
+.footer-flag { display:flex; gap:4px; margin-top:20px; }
+.footer-flag div { height:4px; width:36px; border-radius:2px; }
+.footer-col h5 { font-size:11px; letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); font-weight:600; margin-bottom:20px; }
+.footer-col a { display:block; font-size:14px; font-weight:300; color:var(--muted); text-decoration:none; margin-bottom:12px; transition:color 0.2s; }
+.footer-col a:hover { color:var(--gold-light); }
+.footer-bottom { max-width:1200px; margin:40px auto 0; padding-top:24px; border-top:1px solid rgba(200,146,42,0.1); display:flex; justify-content:space-between; align-items:center; }
+.footer-bottom p { font-size:12px; color:var(--muted); }
+.domain-badge { font-size:12px; color:var(--gold); letter-spacing:0.08em; font-weight:500; }
+
+/* MOBILE */
+@media(max-width:900px) {
+  #navbar { padding:18px 24px; }
+  #navbar.scrolled { padding:14px 24px; }
+  .nav-links { display:none; }
+  .hamburger { display:flex; }
+  #home { padding:120px 24px 80px; }
+  h1.hero-title { font-size:clamp(42px,12vw,72px); }
+  .hero-stats { display:none; }
+  .about-inner { grid-template-columns:1fr; gap:40px; }
+  .about-photo { height:280px; }
+  .ach-inner { grid-template-columns:1fr 1fr; gap:30px; }
+  .gallery-grid { grid-template-columns:1fr 1fr; }
+  .g-item:first-child { grid-column:span 2; }
+  .video-grid { grid-template-columns:1fr; }
+  .book-inner { grid-template-columns:1fr; gap:48px; }
+  .form-row { grid-template-columns:1fr; }
+  .footer-inner { grid-template-columns:1fr 1fr; gap:32px; }
+  section { padding:80px 24px; }
+  .achievements { padding:40px 24px; }
+  footer { padding:48px 24px; }
+  .footer-bottom { flex-direction:column; gap:10px; text-align:center; }
+  .social-bar { padding:40px 24px; }
+}
+@media(max-width:500px) {
+  .ach-inner { grid-template-columns:1fr 1fr; }
+  .footer-inner { grid-template-columns:1fr; }
+  .gallery-grid { grid-template-columns:1fr; }
+  .g-item:first-child { grid-column:span 1; }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="navbar">
+  <a href="#home" class="nav-logo">
+    Ethiopiawinet
+    <small>Dance Crew</small>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#videos">Videos</a></li>
+    <li><a href="#book" class="nav-cta">Book Us</a></li>
+  </ul>
+  <button class="hamburger" onclick="openMenu()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <button class="close-btn" onclick="closeMenu()">✕</button>
+  <a href="#home" onclick="closeMenu()">Home</a>
+  <a href="#about" onclick="closeMenu()">About</a>
+  <a href="#gallery" onclick="closeMenu()">Gallery</a>
+  <a href="#videos" onclick="closeMenu()">Videos</a>
+  <a href="#book" onclick="closeMenu()">Book Us</a>
+</div>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-img"></div>
+  <div class="flag-bar">
+    <div class="fb-green"></div>
+    <div class="fb-gold"></div>
+    <div class="fb-red"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-tag">
+      <div class="hero-tag-line"></div>
+      <span>Est. 2009 · Addis Ababa, Ethiopia</span>
+    </div>
+    <h1 class="hero-title">
+      <em>Rooted in</em>
+      <strong>Heritage.</strong>
+      <em>Alive on</em>
+      <strong>Stage.</strong>
+    </h1>
+    <p class="hero-desc">
+      Award-winning champions of Ethiopian dance, drumming, song, and theatre — bringing the living traditions of Ethiopia and East Africa to stages around the world.
+    </p>
+    <div class="hero-btns">
+      <a href="#book" class="btn-gold">Book Us for Your Event</a>
+      <a href="https://youtube.com/@ethiopiawinetdancecrew6?si=NmVJJolz-VkuXrIN" target="_blank" class="btn-outline">
+        <div class="play-icon">▶</div>
+        Watch Performances
+      </a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-item">
+      <div class="stat-num">15+</div>
+      <div class="stat-lbl">Years Performing</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">6</div>
+      <div class="stat-lbl">Crew Members</div>
+    </div>
+    <div class="stat-item">
+      <div class="stat-num">🏆</div>
+      <div class="stat-lbl">Balgeru Idol Champions</div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-inner">
+    <div class="about-text">
+      <div class="section-tag"><span>Our Story</span></div>
+      <h2 class="sec-title">Born to <em>Preserve & Elevate</em> Culture</h2>
+      <p>Founded in 2009, Ethiopiawinet Dance Crew has grown into one of Ethiopia's most celebrated performing arts groups. We are six artists united by a shared mission: to keep the living traditions of our heritage vibrant, visible, and celebrated worldwide.</p>
+      <p>From winning national competitions including the prestigious Balgeru Idol to performing alongside Ethiopia's most popular singers in music videos and representing Ethiopia at the FIFA World Cup in Qatar 2022, Ethiopiawinet has become a defining voice in East African cultural performance.</p>
+      <p>Grounded in the rich traditions of Ethiopia and Eritrea — we bring authenticity, precision, and soul to every stage we grace.</p>
+      <div class="about-facts">
+        <div class="fact-item"><strong>Dance</strong><span>Ethiopian & Eritrean traditional forms</span></div>
+        <div class="fact-item"><strong>Music</strong><span>Live drumming & traditional song</span></div>
+        <div class="fact-item"><strong>Theatre</strong><span>Storytelling through movement</span></div>
+        <div class="fact-item"><strong>Reach</strong><span>National & international stages</span></div>
+      </div>
+    </div>
+    <img src="https://images.unsplash.com/photo-1547153760-18fc86324498?w=800&q=80" alt="Ethiopiawinet Dance Crew" class="about-photo" id="about-photo">
+  </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<div class="achievements">
+  <div class="ach-inner">
+    <div><div class="ach-num">2009</div><div class="ach-lbl">Year Founded</div></div>
+    <div><div class="ach-num">6</div><div class="ach-lbl">Crew Members</div></div>
+    <div><div class="ach-num">🏆</div><div class="ach-lbl">Balgeru Idol Winner</div></div>
+    <div><div class="ach-num">🌍</div><div class="ach-lbl">World Cup Qatar 2022</div></div>
+  </div>
+</div>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="gallery-inner">
+    <div class="gallery-head">
+      <div>
+        <div class="section-tag"><span>Gallery</span></div>
+        <h2 class="sec-title">Moments <em>in Motion</em></h2>
+      </div>
+      <a href="#book" class="btn-outline" style="font-size:12px;">Book a Performance →</a>
+    </div>
+    <div class="gallery-grid">
+      <div class="g-item">
+        <img src="_M0A8260.jpeg" alt="Ethiopiawinet Dance Crew Performance" onerror="this.src='https://images.unsplash.com/photo-1547153760-18fc86324498?w=800&q=80'">
+        <div class="g-overlay"></div>
+      </div>
+      <div class="g-item">
+        <img src="_M0A8263.jpeg" alt="Ethiopiawinet Performance" onerror="this.src='https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=800&q=80'">
+        <div class="g-overlay"></div>
+      </div>
+      <div class="g-item">
+        <img src="DSC03802.jpeg" alt="Cultural Dance" onerror="this.src='https://images.unsplash.com/photo-1547153760-18fc86324498?w=600&q=80'">
+        <div class="g-overlay"></div>
+      </div>
+      <div class="g-item">
+        <img src="DSC03959.jpeg" alt="Stage Performance" onerror="this.src='https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&q=80'">
+        <div class="g-overlay"></div>
+      </div>
+      <div class="g-item">
+        <img src="IMG_5428.jpeg" alt="Ethiopiawinet Crew" onerror="this.src='https://images.unsplash.com/photo-1547153760-18fc86324498?w=600&q=80'">
+        <div class="g-overlay"></div>
+      </div>
+      <div class="g-item">
+        <img src="IMG_5423.jpeg" alt="Dance Performance" onerror="this.src='https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?w=600&q=80'">
+        <div class="g-overlay"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section id="videos">
+  <div class="videos-inner">
+    <div class="section-tag"><span>Videos</span></div>
+    <div style="display:flex; justify-content:space-between; align-items:flex-end;">
+      <h2 class="sec-title">See Us <em>Perform</em></h2>
+    </div>
+    <div class="video-grid">
+      <a href="https://youtube.com/@ethiopiawinetdancecrew6?si=NmVJJolz-VkuXrIN" target="_blank" class="video-card">
+        <div class="video-thumb vt1"><div class="video-play-btn">▶</div></div>
+        <div class="video-info">
+          <div class="video-tag">YouTube Channel</div>
+          <h4>Watch Our Performances</h4>
+          <p>Full performances, music videos & cultural showcases</p>
+        </div>
+      </a>
+      <a href="https://www.instagram.com/ethiopiawinet_dance_crew" target="_blank" class="video-card">
+        <div class="video-thumb vt2"><div class="video-play-btn">▶</div></div>
+        <div class="video-info">
+          <div class="video-tag">Instagram Reels</div>
+          <h4>Behind the Scenes</h4>
+          <p>Short clips, rehearsals & performance highlights</p>
+        </div>
+      </a>
+      <a href="https://www.tiktok.com/@ethiopiawinet_dance_crew" target="_blank" class="video-card">
+        <div class="video-thumb vt3"><div class="video-play-btn">▶</div></div>
+        <div class="video-info">
+          <div class="video-tag">TikTok</div>
+          <h4>Viral Dance Moments</h4>
+          <p>Short clips from our best performances</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL BAR -->
+<div class="social-bar">
+  <div class="social-inner">
+    <a href="https://www.instagram.com/ethiopiawinet_dance_crew?igsh=MWsxNHVoM3BvdHdsbA%3D%3D&utm_source=qr" target="_blank" class="social-btn">📸 Instagram</a>
+    <a href="https://youtube.com/@ethiopiawinetdancecrew6?si=NmVJJolz-VkuXrIN" target="_blank" class="social-btn">▶️ YouTube</a>
+    <a href="https://www.facebook.com/share/1AHc5i5jwR/?mibextid=wwXIfr" target="_blank" class="social-btn">📘 Facebook</a>
+    <a href="https://www.tiktok.com/@ethiopiawinet_dance_crew" target="_blank" class="social-btn">🎵 TikTok</a>
+    <a href="tel:+15715699033" class="social-btn">📞 Call Us</a>
+    <a href="mailto:ethiopiawinetd@gmail.com" class="social-btn">✉️ Email Us</a>
+  </div>
+</div>
+
+<!-- BOOKING -->
+<section id="book">
+  <div class="book-inner">
+    <div class="book-info">
+      <div class="section-tag"><span>Book Us</span></div>
+      <h2>Bring Ethiopian <em>Culture</em> to Your Event</h2>
+      <p>Ethiopiawinet is available for festivals, cultural events, private celebrations, corporate events, weddings, and international performances. We bring a complete, professional production including costumes, live drumming, and choreography.</p>
+      <div class="contact-links">
+        <a href="mailto:ethiopiawinetd@gmail.com" class="contact-item">
+          <div class="contact-icon">✉️</div>
+          <div class="contact-text"><strong>Email Us</strong><span>ethiopiawinetd@gmail.com</span></div>
+        </a>
+        <a href="tel:+15715699033" class="contact-item">
+          <div class="contact-icon">📞</div>
+          <div class="contact-text"><strong>Call Us</strong><span>+1 (571) 569-9033</span></div>
+        </a>
+        <a href="https://www.instagram.com/ethiopiawinet_dance_crew" target="_blank" class="contact-item">
+          <div class="contact-icon">📸</div>
+          <div class="contact-text"><strong>Instagram</strong><span>@ethiopiawinet_dance_crew</span></div>
+        </a>
+      </div>
+    </div>
+    <form class="book-form" onsubmit="handleSubmit(event)">
+      <div class="form-row">
+        <div class="form-group"><label>Your Name</label><input type="text" placeholder="Full name" required></div>
+        <div class="form-group"><label>Email Address</label><input type="email" placeholder="your@email.com" required></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Phone Number</label><input type="tel" placeholder="+1 000 000 0000"></div>
+        <div class="form-group"><label>Event Date</label><input type="date"></div>
+      </div>
+      <div class="form-group">
+        <label>Event Type</label>
+        <select>
+          <option value="">Select event type</option>
+          <option>Cultural Festival</option>
+          <option>Wedding Celebration</option>
+          <option>Corporate Event</option>
+          <option>Private Party</option>
+          <option>International Performance</option>
+          <option>Music Video / Film</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Event Details</label>
+        <textarea placeholder="Tell us about your event — venue, city, expected audience size, and any special requests..."></textarea>
+      </div>
+      <button type="submit" class="form-submit">Send Booking Request →</button>
+    </form>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <span class="footer-logo">Ethiopiawinet</span>
+      <p>One of Ethiopia's most celebrated dance crews — performing the living traditions of Ethiopia, Eritrea, and East Africa on stages around the world since 2009.</p>
+      <div class="footer-flag">
+        <div style="background:var(--green)"></div>
+        <div style="background:var(--gold)"></div>
+        <div style="background:var(--red)"></div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h5>Navigation</h5>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#videos">Videos</a>
+      <a href="#book">Book Us</a>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <a href="mailto:ethiopiawinetd@gmail.com">ethiopiawinetd@gmail.com</a>
+      <a href="tel:+15715699033">+1 (571) 569-9033</a>
+    </div>
+    <div class="footer-col">
+      <h5>Follow Us</h5>
+      <a href="https://www.instagram.com/ethiopiawinet_dance_crew" target="_blank">Instagram</a>
       <a href="https://youtube.com/@ethiopiawinetdancecrew6" target="_blank">YouTube</a>
       <a href="https://www.facebook.com/share/1AHc5i5jwR/" target="_blank">Facebook</a>
       <a href="https://www.tiktok.com/@ethiopiawinet_dance_crew" target="_blank">TikTok</a>
@@ -37,41 +620,3 @@ document.querySelectorAll('.spec-card, .fact-item, .video-card, .g-item').forEac
 </script>
 </body>
 </html>
-com/ethiopiawinet_dance_crew" target="_blank">Instagram</a>
-      <a href="https://youtube.com/@ethiopiawinetdancecrew6" target="_blank">YouTube</a>
-      <a href="https://www.facebook.com/share/1AHc5i5jwR/" target="_blank">Facebook</a>
-      <a href="https://www.tiktok.com/@ethiopiawinet_dance_crew" target="_blank">TikTok</a>
-    </div>
-  </div>
-  <div class="footer-bottom">
-    <p>© 2024 Ethiopiawinet Dance Crew. All rights reserved.</p>
-    <div class="domain-badge">🌍 ethiopiawinet.github.io</div>
-  </div>
-</footer>
-
-<script>
-window.addEventListener('scroll', () => {
-  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
-});
-function openMenu() { document.getElementById('mobileMenu').classList.add('open'); }
-function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
-function handleSubmit(e) {
-  e.preventDefault();
-  const btn = e.target.querySelector('.form-submit');
-  btn.textContent = '✓ Request Sent! We\'ll be in touch soon.';
-  btn.style.background = '#2D5016';
-  btn.style.color = 'var(--cream)';
-  btn.disabled = true;
-}
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(e => {
-    if (e.isIntersecting) { e.target.style.opacity='1'; e.target.style.transform='translateY(0)'; }
-  });
-}, { threshold: 0.1 });
-document.querySelectorAll('.spec-card, .fact-item, .video-card, .g-item').forEach(el => {
-  el.style.opacity='0'; el.style.transform='translateY(20px)';
-  el.style.transition='opacity 0.6s ease, transform 0.6s ease';
-  observer.observe(el);
-});
-</script>
-</body>
